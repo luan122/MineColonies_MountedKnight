@@ -30,7 +30,7 @@ runs {
 
     server {
         systemProperty 'forge.enabledGameTestNamespaces', mod_id
-        programArgument '--nogui'
+        argument '--nogui'
     }
 
     gameTestServer {
@@ -38,7 +38,7 @@ runs {
     }
 
     data {
-        programArguments.addAll '--mod', mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        arguments.addAll '--mod', mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
     }
 }
 
@@ -46,6 +46,13 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     mavenLocal()
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+        content {
+            includeGroup 'curse.maven'
+        }
+    }
     maven {
         name = 'LDTTeam - Minecolonies'
         url = 'https://ldtteam.jfrog.io/ldtteam/modding/'
@@ -62,16 +69,12 @@ repositories {
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
-    // MineColonies API (compile only - users must have MineColonies installed)
-    compileOnly "com.ldtteam:minecolonies:${minecraft_version}-${minecolonies_version}:api"
-    runtimeOnly "com.ldtteam:minecolonies:${minecraft_version}-${minecolonies_version}:universal"
+    // MineColonies and dependencies via CurseMaven (CurseForge file IDs)
+    // MineColonies 1.1.1300-1.21.1-snapshot (file 7914254, project 245506)
+    compileOnly "curse.maven:minecolonies-245506:${minecolonies_file_id}"
 
-    // Structurize (dependency of MineColonies)
-    compileOnly "com.ldtteam:structurize:${minecraft_version}-${structurize_version}:api"
-    runtimeOnly "com.ldtteam:structurize:${minecraft_version}-${structurize_version}:universal"
-
-    // Domum Ornamentum (dependency of MineColonies)
-    implementation "com.ldtteam:domumornamentum:${minecraft_version}-${domumornamentum_version}:universal"
+    // Structurize 1.0.822-1.21.1-snapshot (file 7905179, project 298744)
+    compileOnly "curse.maven:structurize-298744:${structurize_file_id}"
 }
 
 tasks.withType(ProcessResources).configureEach {

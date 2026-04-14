@@ -1,6 +1,7 @@
 package com.mountedknight.items;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -32,6 +33,11 @@ public class LanceItem extends SwordItem {
     public static final float BASE_DAMAGE = 6.0F;
     public static final float ATTACK_SPEED = -3.0F; // Results in ~1.0 attacks/sec
 
+    private static final ResourceLocation LANCE_ATTACK_DAMAGE_ID =
+            ResourceLocation.withDefaultNamespace("base_attack_damage");
+    private static final ResourceLocation LANCE_ATTACK_SPEED_ID =
+            ResourceLocation.withDefaultNamespace("base_attack_speed");
+
     public LanceItem(Tier tier, Properties properties) {
         super(tier, properties);
     }
@@ -45,7 +51,7 @@ public class LanceItem extends SwordItem {
                 .add(
                         Attributes.ATTACK_DAMAGE,
                         new AttributeModifier(
-                                BASE_MODIFIERS_BY_SLOT_ATTACK_DAMAGE,
+                                LANCE_ATTACK_DAMAGE_ID,
                                 BASE_DAMAGE,
                                 AttributeModifier.Operation.ADD_VALUE
                         ),
@@ -54,7 +60,7 @@ public class LanceItem extends SwordItem {
                 .add(
                         Attributes.ATTACK_SPEED,
                         new AttributeModifier(
-                                BASE_MODIFIERS_BY_SLOT_ATTACK_SPEED,
+                                LANCE_ATTACK_SPEED_ID,
                                 ATTACK_SPEED,
                                 AttributeModifier.Operation.ADD_VALUE
                         ),
