@@ -8,8 +8,8 @@
   "item.mounted_knight.osmium_lance": "Osmium Lance",
   "item.mounted_knight.refined_obsidian_lance": "Refined Obsidian Lance",
 
-  "block.mounted_knight.stables": "Stables",
-  "block.mounted_knight.stables.tooltip": "MineColonies hut block - place in colony to assign Horse Breeder",
+  "block.mounted_knight.blockhutstables": "Stables",
+  "block.mounted_knight.blockhutstables.tooltip": "MineColonies hut block - place in colony to assign Horse Breeder",
 
   "itemGroup.mounted_knight": "Mounted Knight",
 

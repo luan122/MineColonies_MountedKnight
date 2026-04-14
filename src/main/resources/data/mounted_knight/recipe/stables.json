@@ -16,7 +16,7 @@
     "L": { "item": "minecraft:lead" }
   },
   "result": {
-    "id": "mounted_knight:stables",
+    "id": "mounted_knight:blockhutstables",
     "count": 1
   },
   "show_notification": true

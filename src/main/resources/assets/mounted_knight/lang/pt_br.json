@@ -8,8 +8,8 @@
   "item.mounted_knight.osmium_lance": "Lança de Ósmio",
   "item.mounted_knight.refined_obsidian_lance": "Lança de Obsidiana Refinada",
 
-  "block.mounted_knight.stables": "Estábulo",
-  "block.mounted_knight.stables.tooltip": "Bloco de cabana do MineColonies - coloque na colônia para designar um Criador de Cavalos",
+  "block.mounted_knight.blockhutstables": "Estábulo",
+  "block.mounted_knight.blockhutstables.tooltip": "Bloco de cabana do MineColonies - coloque na colônia para designar um Criador de Cavalos",
 
   "itemGroup.mounted_knight": "Cavaleiro Montado",
 

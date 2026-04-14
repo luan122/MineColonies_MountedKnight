@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mounted_knight:stables"
+          "name": "mounted_knight:blockhutstables"
         }
       ],
       "conditions": [

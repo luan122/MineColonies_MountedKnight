@@ -1,14 +1,13 @@
 package com.mountedknight.colony.buildings;
 
 import com.minecolonies.api.colony.IColony;
-import com.mountedknight.MountedKnightMod;
+import com.minecolonies.core.colony.buildings.AbstractBuilding;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,26 +23,34 @@ import java.util.List;
  *
  * Breeding cooldown: 5 minutes (6000 ticks) between breeds.
  */
-public class BuildingStables {
+public class BuildingStables extends AbstractBuilding {
 
-    public static final String SCHEMATIC_NAME = "stables";
+    public static final String STABLES_ID = "stables";
     public static final int BREEDING_COOLDOWN_TICKS = 6000; // 5 minutes
+    private static final int MAX_BUILDING_LEVEL = 5;
 
-    private final IColony colony;
-    private final BlockPos position;
-    private int buildingLevel = 1;
     private long lastBreedingTick = 0;
 
     public BuildingStables(@NotNull IColony colony, @NotNull BlockPos pos) {
-        this.colony = colony;
-        this.position = pos;
+        super(colony, pos);
+    }
+
+    @NotNull
+    @Override
+    public String getSchematicName() {
+        return STABLES_ID;
+    }
+
+    @Override
+    public int getMaxBuildingLevel() {
+        return MAX_BUILDING_LEVEL;
     }
 
     /**
      * Maximum number of horses this stable can maintain at its current level.
      */
     public int getMaxHorses() {
-        return switch (buildingLevel) {
+        return switch (getBuildingLevel()) {
             case 1 -> 2;
             case 2 -> 3;
             case 3 -> 4;
@@ -57,14 +64,14 @@ public class BuildingStables {
      * Whether this stable level supports breeding.
      */
     public boolean canBreed() {
-        return buildingLevel >= 2;
+        return getBuildingLevel() >= 2;
     }
 
     /**
      * Whether this stable level uses golden apples for better horses.
      */
     public boolean usesGoldenApples() {
-        return buildingLevel >= 4;
+        return getBuildingLevel() >= 4;
     }
 
     /**
@@ -83,10 +90,9 @@ public class BuildingStables {
 
     /**
      * Called by the AI when a breeding action is performed.
-     * Uses the colony world time for cooldown tracking.
      */
     public void onBreedingPerformed() {
-        Level level = colony.getWorld();
+        Level level = getColony().getWorld();
         if (level != null) {
             markBred(level.getGameTime());
         }
@@ -97,9 +103,10 @@ public class BuildingStables {
      */
     public List<Horse> getHorsesInRange(@NotNull Level level) {
         int range = 32;
+        BlockPos pos = getPosition();
         AABB searchArea = new AABB(
-                position.getX() - range, position.getY() - 10, position.getZ() - range,
-                position.getX() + range, position.getY() + 10, position.getZ() + range
+                pos.getX() - range, pos.getY() - 10, pos.getZ() - range,
+                pos.getX() + range, pos.getY() + 10, pos.getZ() + range
         );
         return level.getEntitiesOfClass(Horse.class, searchArea);
     }
@@ -122,27 +129,5 @@ public class BuildingStables {
             }
         }
         return null;
-    }
-
-    @NotNull
-    public String getSchematicName() {
-        return SCHEMATIC_NAME;
-    }
-
-    @NotNull
-    public BlockPos getPosition() {
-        return position;
-    }
-
-    public int getBuildingLevel() {
-        return buildingLevel;
-    }
-
-    public void setBuildingLevel(int level) {
-        this.buildingLevel = Math.max(1, Math.min(5, level));
-    }
-
-    public IColony getColony() {
-        return colony;
     }
 }
