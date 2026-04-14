@@ -6,11 +6,11 @@ plugins {
     id 'net.neoforged.gradle.userdev' version "${neogradle_version}"
 }
 
-version = mod_version
+version = "${minecraft_version}-${mod_version}"
 group = mod_group_id
 
 base {
-    archivesName = mod_id
+    archivesName = 'minecolonies_mounted_knight'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)

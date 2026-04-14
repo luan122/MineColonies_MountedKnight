@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read properties from gradle.properties
+        id: props
+        run: |
+          java_ver=$(grep '^java_version=' gradle.properties | cut -d'=' -f2)
+          mc_ver=$(grep '^minecraft_version=' gradle.properties | cut -d'=' -f2)
+          mod_ver=$(grep '^mod_version=' gradle.properties | cut -d'=' -f2)
+          echo "java_version=${java_ver}" >> "$GITHUB_OUTPUT"
+          echo "minecraft_version=${mc_ver}" >> "$GITHUB_OUTPUT"
+          echo "mod_version=${mod_ver}" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Java ${{ steps.props.outputs.java_version }}
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ steps.props.outputs.java_version }}
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build
+        run: ./gradlew build --no-daemon
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Mounted Knight ${{ steps.props.outputs.mod_version }} for MC ${{ steps.props.outputs.minecraft_version }}"
+          body: |
+            ## Mounted Knight v${{ steps.props.outputs.mod_version }}
+            **Minecraft:** ${{ steps.props.outputs.minecraft_version }}
+            **NeoForge:** 21.1.77+
+
+            ### Requirements
+            - MineColonies 1.1.1300+
+            - Structurize 1.0.822+
+
+            ### Optional
+            - Mekanism — Osmium & Refined Obsidian lances
+            - JEI — Recipe/info integration
+          files: build/libs/minecolonies_mounted_knight-*.jar
+          generate_release_notes: true
