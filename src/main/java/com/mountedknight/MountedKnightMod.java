@@ -2,6 +2,7 @@ package com.mountedknight;
 
 import com.mountedknight.registry.ModBlocks;
 import com.mountedknight.registry.ModBuildings;
+import com.mountedknight.registry.ModGuardTypes;
 import com.mountedknight.registry.ModItems;
 import com.mountedknight.registry.ModJobs;
 import net.neoforged.bus.api.IEventBus;
@@ -22,6 +23,7 @@ public class MountedKnightMod {
         ModBlocks.register(modEventBus);
         ModBuildings.register(modEventBus);
         ModJobs.register(modEventBus);
+        ModGuardTypes.register(modEventBus);
 
         // Mekanism integration (osmium + refined obsidian lances)
         // IMPORTANT: Only load MekanismCompat class if Mekanism is present.

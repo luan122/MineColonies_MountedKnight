@@ -16,7 +16,7 @@
   "com.mounted_knight.building.stables": "Stables",
   "com.mounted_knight.job.horsebreeder": "Horse Breeder",
   "com.mounted_knight.job.mountedknight": "Mounted Knight",
-  "com.mounted_knight.job.mountedarcher": "Mounted Archer",
+  "com.mounted_knight.guard.mountedknight": "Mounted Knight",
 
   "com.mounted_knight.building.stables.desc": "Breeds and cares for horses used by the colony's mounted cavalry.",
   "com.mounted_knight.job.horsebreeder.desc": "Tends to the horses in the stables - feeding, healing, and breeding them.",

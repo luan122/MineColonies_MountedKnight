@@ -8,7 +8,8 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 /**
  * Handles integration with MineColonies during mod lifecycle events.
  *
- * Building registration is handled by ModBuildings via DeferredRegister.
+ * Building, Job, and GuardType registration is handled via DeferredRegister
+ * in ModBuildings, ModJobs, and ModGuardTypes respectively.
  * This class handles additional setup that must happen after registries freeze.
  */
 @EventBusSubscriber(modid = MountedKnightMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -18,7 +19,6 @@ public class MineColoniesIntegration {
     public static void onCommonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             MountedKnightMod.LOGGER.info("Mounted Knight MineColonies integration initialized.");
-            // TODO: Register JobEntry and GuardType when MineColonies API supports addon job/guard registration
         });
     }
 }

@@ -16,7 +16,7 @@
   "com.mounted_knight.building.stables": "Estábulo",
   "com.mounted_knight.job.horsebreeder": "Criador de Cavalos",
   "com.mounted_knight.job.mountedknight": "Cavaleiro Montado",
-  "com.mounted_knight.job.mountedarcher": "Arqueiro Montado",
+  "com.mounted_knight.guard.mountedknight": "Cavaleiro Montado",
 
   "com.mounted_knight.building.stables.desc": "Cria e cuida dos cavalos usados pela cavalaria montada da colônia.",
   "com.mounted_knight.job.horsebreeder.desc": "Cuida dos cavalos no estábulo - alimentando, curando e criando-os.",
