@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  I",
+    " S ",
+    "S  "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_block" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "id": "mounted_knight:iron_lance",
+    "count": 1
+  }
+}

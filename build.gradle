@@ -1,0 +1,109 @@
+plugins {
+    id 'java-library'
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.neoforged.gradle.userdev' version "${neogradle_version}"
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
+
+runs {
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
+        modSource project.sourceSets.main
+    }
+
+    client {
+        systemProperty 'forge.enabledGameTestNamespaces', mod_id
+    }
+
+    server {
+        systemProperty 'forge.enabledGameTestNamespaces', mod_id
+        programArgument '--nogui'
+    }
+
+    gameTestServer {
+        systemProperty 'forge.enabledGameTestNamespaces', mod_id
+    }
+
+    data {
+        programArguments.addAll '--mod', mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    mavenLocal()
+    maven {
+        name = 'LDTTeam - Minecolonies'
+        url = 'https://ldtteam.jfrog.io/ldtteam/modding/'
+    }
+    maven {
+        name = 'Jared Maven'
+        url = 'https://maven.blamejared.com'
+    }
+    maven {
+        url = 'https://maven.neoforged.net/releases'
+    }
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:${neo_version}"
+
+    // MineColonies API (compile only - users must have MineColonies installed)
+    compileOnly "com.ldtteam:minecolonies:${minecraft_version}-${minecolonies_version}:api"
+    runtimeOnly "com.ldtteam:minecolonies:${minecraft_version}-${minecolonies_version}:universal"
+
+    // Structurize (dependency of MineColonies)
+    compileOnly "com.ldtteam:structurize:${minecraft_version}-${structurize_version}:api"
+    runtimeOnly "com.ldtteam:structurize:${minecraft_version}-${structurize_version}:universal"
+
+    // Domum Ornamentum (dependency of MineColonies)
+    implementation "com.ldtteam:domumornamentum:${minecraft_version}-${domumornamentum_version}:universal"
+}
+
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            minecraft_version   : minecraft_version,
+            minecraft_version_range: '[1.21.1,1.22)',
+            neo_version         : neo_version,
+            neo_version_range   : '[21.1,)',
+            loader_version_range: '[4,)',
+            mod_id              : mod_id,
+            mod_name            : mod_name,
+            mod_license         : mod_license,
+            mod_version         : mod_version,
+            mod_authors         : mod_authors,
+            mod_description     : mod_description,
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties + [project: project]
+    }
+}
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/repo"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "item.mounted_knight.lance": "Lance",
+  "item.mounted_knight.iron_lance": "Iron Lance",
+  "item.mounted_knight.diamond_lance": "Diamond Lance",
+
+  "itemGroup.mounted_knight": "Mounted Knight",
+
+  "com.mounted_knight.building.stables": "Stables",
+  "com.mounted_knight.job.horsebreeder": "Horse Breeder",
+  "com.mounted_knight.job.mountedknight": "Mounted Knight",
+  "com.mounted_knight.job.mountedarcher": "Mounted Archer",
+
+  "com.mounted_knight.building.stables.desc": "Breeds and cares for horses used by the colony's mounted cavalry.",
+  "com.mounted_knight.job.horsebreeder.desc": "Tends to the horses in the stables - feeding, healing, and breeding them.",
+  "com.mounted_knight.job.mountedknight.desc": "A mounted cavalry guard that patrols and defends the colony on horseback.",
+
+  "tooltip.mounted_knight.lance.mounted_bonus": "§6+4 Damage when mounted",
+  "tooltip.mounted_knight.lance.charge_bonus": "§eCharge bonus at full gallop",
+
+  "message.mounted_knight.horse_died": "Your horse has fallen in battle!",
+  "message.mounted_knight.no_horse_available": "No horses available at the stables.",
+  "message.mounted_knight.stables_full": "The stables are full.",
+  "message.mounted_knight.breeding_cooldown": "Breeding is on cooldown.",
+  "message.mounted_knight.horse_tamed": "A wild horse has been tamed!"
+}

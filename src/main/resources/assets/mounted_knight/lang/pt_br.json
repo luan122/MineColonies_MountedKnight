@@ -1,0 +1,25 @@
+{
+  "item.mounted_knight.lance": "Lança",
+  "item.mounted_knight.iron_lance": "Lança de Ferro",
+  "item.mounted_knight.diamond_lance": "Lança de Diamante",
+
+  "itemGroup.mounted_knight": "Cavaleiro Montado",
+
+  "com.mounted_knight.building.stables": "Estábulo",
+  "com.mounted_knight.job.horsebreeder": "Criador de Cavalos",
+  "com.mounted_knight.job.mountedknight": "Cavaleiro Montado",
+  "com.mounted_knight.job.mountedarcher": "Arqueiro Montado",
+
+  "com.mounted_knight.building.stables.desc": "Cria e cuida dos cavalos usados pela cavalaria montada da colônia.",
+  "com.mounted_knight.job.horsebreeder.desc": "Cuida dos cavalos no estábulo - alimentando, curando e criando-os.",
+  "com.mounted_knight.job.mountedknight.desc": "Um guarda de cavalaria montado que patrulha e defende a colônia a cavalo.",
+
+  "tooltip.mounted_knight.lance.mounted_bonus": "§6+4 de Dano quando montado",
+  "tooltip.mounted_knight.lance.charge_bonus": "§eBônus de carga a galope total",
+
+  "message.mounted_knight.horse_died": "Seu cavalo caiu em batalha!",
+  "message.mounted_knight.no_horse_available": "Nenhum cavalo disponível no estábulo.",
+  "message.mounted_knight.stables_full": "O estábulo está cheio.",
+  "message.mounted_knight.breeding_cooldown": "A criação está em recarga.",
+  "message.mounted_knight.horse_tamed": "Um cavalo selvagem foi domado!"
+}
