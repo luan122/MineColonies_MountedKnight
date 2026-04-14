@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "mounted_knight:block/stables_top",
+    "side": "mounted_knight:block/stables_side"
+  }
+}

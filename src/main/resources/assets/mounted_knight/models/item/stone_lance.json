@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "mounted_knight:item/lance"
+    "layer0": "mounted_knight:item/stone_lance"
   }
 }

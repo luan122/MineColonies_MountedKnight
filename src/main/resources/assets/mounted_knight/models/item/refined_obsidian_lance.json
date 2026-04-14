@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "mounted_knight:item/refined_obsidian_lance"
+  }
+}

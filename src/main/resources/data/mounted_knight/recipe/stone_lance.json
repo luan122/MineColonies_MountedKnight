@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  I",
+    "  C",
     " S ",
     "S  "
   ],
   "key": {
-    "I": { "item": "minecraft:iron_ingot" },
+    "C": { "item": "minecraft:cobblestone" },
     "S": { "item": "minecraft:stick" }
   },
   "result": {
-    "id": "mounted_knight:iron_lance",
+    "id": "mounted_knight:stone_lance",
     "count": 1
   }
 }

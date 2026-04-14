@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "mounted_knight",
+  "pattern": [
+    "FHF",
+    "SGS",
+    "PLP"
+  ],
+  "key": {
+    "F": { "item": "minecraft:oak_fence" },
+    "H": { "item": "minecraft:hay_block" },
+    "S": { "item": "minecraft:saddle" },
+    "G": { "item": "structurize:sceptergold" },
+    "P": { "item": "minecraft:oak_planks" },
+    "L": { "item": "minecraft:lead" }
+  },
+  "result": {
+    "id": "mounted_knight:stables",
+    "count": 1
+  },
+  "show_notification": true
+}

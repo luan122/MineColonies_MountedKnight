@@ -1,7 +1,15 @@
 {
-  "item.mounted_knight.lance": "Lança",
+  "item.mounted_knight.wooden_lance": "Lança de Madeira",
+  "item.mounted_knight.stone_lance": "Lança de Pedra",
   "item.mounted_knight.iron_lance": "Lança de Ferro",
+  "item.mounted_knight.golden_lance": "Lança de Ouro",
   "item.mounted_knight.diamond_lance": "Lança de Diamante",
+  "item.mounted_knight.netherite_lance": "Lança de Netherita",
+  "item.mounted_knight.osmium_lance": "Lança de Ósmio",
+  "item.mounted_knight.refined_obsidian_lance": "Lança de Obsidiana Refinada",
+
+  "block.mounted_knight.stables": "Estábulo",
+  "block.mounted_knight.stables.tooltip": "Bloco de cabana do MineColonies - coloque na colônia para designar um Criador de Cavalos",
 
   "itemGroup.mounted_knight": "Cavaleiro Montado",
 
@@ -21,5 +29,25 @@
   "message.mounted_knight.no_horse_available": "Nenhum cavalo disponível no estábulo.",
   "message.mounted_knight.stables_full": "O estábulo está cheio.",
   "message.mounted_knight.breeding_cooldown": "A criação está em recarga.",
-  "message.mounted_knight.horse_tamed": "Um cavalo selvagem foi domado!"
+  "message.mounted_knight.horse_tamed": "Um cavalo selvagem foi domado!",
+
+  "jei.mounted_knight.lance.header": "Lança de Combate Montado",
+  "jei.mounted_knight.lance.base_damage": "Dano Base: %s",
+  "jei.mounted_knight.lance.mounted_damage": "Dano Montado: %s (+4 bônus montado)",
+  "jei.mounted_knight.lance.charge_info": "Bônus de Carga: Até +3 de dano a galope total",
+  "jei.mounted_knight.lance.usage": "Equipe um colonista Cavaleiro Montado com esta lança para máxima eficácia em combate montado. Cavalos são criados e treinados no Estábulo.",
+
+  "jei.mounted_knight.stables.header": "Estábulo - Edifício do MineColonies",
+  "jei.mounted_knight.stables.desc": "Coloque este bloco de cabana dentro da sua colônia para criar um Estábulo. Designa um Criador de Cavalos que alimenta, cura, doma e cria cavalos para seus Cavaleiros Montados.",
+  "jei.mounted_knight.stables.levels": "Nv1: 2 cavalos | Nv2: 3 + criação | Nv3: 4 | Nv4: 6 + maçãs douradas | Nv5: 8 cavalos",
+
+  "gui.mounted_knight.stables.horses": "Cavalos: %d / %d",
+  "gui.mounted_knight.stables.breeding": "Criação: %s",
+  "gui.mounted_knight.stables.breeding.ready": "Pronto",
+  "gui.mounted_knight.stables.breeding.cooldown": "Em recarga",
+  "gui.mounted_knight.stables.breeding.unavailable": "Requer Nível 2",
+  "gui.mounted_knight.stables.food": "Alimento: %s",
+  "gui.mounted_knight.stables.food.wheat": "Trigo",
+  "gui.mounted_knight.stables.food.golden_apple": "Maçãs Douradas",
+  "gui.mounted_knight.stables.level": "Estábulo Nível %d"
 }

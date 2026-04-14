@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  I",
+    "  P",
     " S ",
     "S  "
   ],
   "key": {
-    "I": { "item": "minecraft:iron_ingot" },
+    "P": { "tag": "minecraft:planks" },
     "S": { "item": "minecraft:stick" }
   },
   "result": {
-    "id": "mounted_knight:iron_lance",
+    "id": "mounted_knight:wooden_lance",
     "count": 1
   }
 }

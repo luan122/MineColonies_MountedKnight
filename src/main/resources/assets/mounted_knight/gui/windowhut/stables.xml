@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Stables Building GUI Layout (Blockout XML)
+  Used by MineColonies' building view system.
+
+  Shows:
+  - Building header with name and level
+  - Horse capacity (current/max)
+  - Breeding status and cooldown
+  - Feed type info per level
+  - Horse list with status
+-->
+<window xmlns="http://blockout" width="420" height="272">
+
+  <!-- Background -->
+  <image id="background" source="minecolonies:textures/gui/builderhut/layouthut.png"
+         pos="0,0" size="420,272"/>
+
+  <!-- Building Icon -->
+  <image id="buildingIcon" source="mounted_knight:textures/gui/stables_hut_icon.png"
+         pos="8,6" size="16,16"/>
+
+  <!-- Header: Building Name + Level -->
+  <label id="header"
+         pos="8,8" size="404,14"
+         color="4210752"
+         textalign="center"
+         label="gui.mounted_knight.stables.level"/>
+
+  <!-- Tab buttons (matches MineColonies standard tabs) -->
+  <buttonimage id="tabInfo" pos="345,16" size="26,26"
+               image="minecolonies:textures/gui/builderhut/info_normal.png"
+               highlight="minecolonies:textures/gui/builderhut/info_hover.png"/>
+  <buttonimage id="tabActions" pos="375,16" size="26,26"
+               image="minecolonies:textures/gui/builderhut/actions_normal.png"
+               highlight="minecolonies:textures/gui/builderhut/actions_hover.png"/>
+
+  <!-- ==================== INFO TAB ==================== -->
+  <group id="pageInfo" pos="8,46" size="404,220">
+
+    <!-- Horse Capacity Section -->
+    <box pos="0,0" size="200,16" color="0x80000000"/>
+    <image id="horseIcon" source="minecraft:textures/item/saddle.png"
+           pos="2,1" size="14,14"/>
+    <label id="labelHorses"
+           pos="20,3" size="178,12"
+           color="ffffff"
+           label="gui.mounted_knight.stables.horses"/>
+
+    <!-- Breeding Status Section -->
+    <box pos="0,20" size="200,16" color="0x80000000"/>
+    <label id="labelBreeding"
+           pos="4,23" size="192,12"
+           color="ffffff"
+           label="gui.mounted_knight.stables.breeding"/>
+
+    <!-- Feed Type Section -->
+    <box pos="0,40" size="200,16" color="0x80000000"/>
+    <label id="labelFood"
+           pos="4,43" size="192,12"
+           color="ffffff"
+           label="gui.mounted_knight.stables.food"/>
+
+    <!-- Horse List -->
+    <label pos="0,64" size="200,12" color="4210752"
+           label="Horses:"/>
+    <scrollinglist id="horseList"
+                   pos="0,78" size="200,134">
+      <pane size="196,18">
+        <box pos="0,0" size="196,17" color="0x40000000"/>
+        <label id="horseName"
+               pos="4,3" size="130,12"
+               color="ffffff"/>
+        <label id="horseHealth"
+               pos="136,3" size="56,12"
+               color="55ff55"
+               textalign="right"/>
+      </pane>
+    </scrollinglist>
+
+    <!-- Stables Info Panel (right side) -->
+    <box pos="206,0" size="196,56" color="0x40000000"/>
+    <label pos="210,4" size="188,12" color="ffffff"
+           label="com.mounted_knight.building.stables.desc"/>
+
+    <!-- Level Progression Info -->
+    <box pos="206,60" size="196,132" color="0x40000000"/>
+    <label pos="210,64" size="188,12" color="ffff55"
+           label="Level Progression:"/>
+    <label pos="210,80" size="188,12" color="ffffff"
+           label="Lv 1: 2 horses (heal, feed)"/>
+    <label pos="210,94" size="188,12" color="ffffff"
+           label="Lv 2: 3 horses + breeding"/>
+    <label pos="210,108" size="188,12" color="ffffff"
+           label="Lv 3: 4 horses + breeding"/>
+    <label pos="210,122" size="188,12" color="ffaa00"
+           label="Lv 4: 6 horses + golden apples"/>
+    <label pos="210,136" size="188,12" color="ffaa00"
+           label="Lv 5: 8 horses + golden apples"/>
+    <label pos="210,158" size="188,12" color="aaaaaa"
+           label="Breeding cooldown: 5 min"/>
+    <label pos="210,172" size="188,12" color="aaaaaa"
+           label="Range: 32 blocks"/>
+  </group>
+
+  <!-- ==================== ACTIONS TAB ==================== -->
+  <group id="pageActions" pos="8,46" size="404,220" visible="false">
+    <button id="btnRecall" pos="0,0" size="196,20"
+            label="Recall Worker" color="ffffff"/>
+    <button id="btnBuild" pos="0,24" size="196,20"
+            label="Build/Upgrade" color="ffffff"/>
+    <button id="btnRepair" pos="0,48" size="196,20"
+            label="Repair" color="ffffff"/>
+  </group>
+
+</window>

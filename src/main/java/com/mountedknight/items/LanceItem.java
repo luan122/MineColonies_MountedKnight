@@ -11,7 +11,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -19,40 +18,46 @@ import net.minecraft.world.level.block.state.BlockState;
 /**
  * The Lance - a mounted combat weapon with extended reach.
  *
- * Deals bonus damage when the wielder is mounted on a horse.
- * Base damage: 6 (iron sword equivalent)
- * Mounted bonus: +4 damage (total 10 when mounted)
- * Attack speed: 1.0 (slower than sword's 1.6, but more damage per hit)
+ * Tier progression (base attack damage / mounted total):
+ *   Wood:              3.0 / 7.0  (+4 mounted bonus)
+ *   Stone:             4.0 / 8.0
+ *   Iron:              5.0 / 9.0
+ *   Gold:              3.0 / 7.0  (fast but weak, like gold sword)
+ *   Diamond:           6.0 / 10.0
+ *   Netherite:         7.0 / 11.0
+ *   Osmium (Mek):      7.0 / 11.0  (same as netherite)
+ *   Refined Obsidian: 10.5 / 14.5  (50% more than netherite)
  *
- * The lance encourages mounted combat by being significantly stronger
- * when used while riding a horse.
+ * All lances have attack speed -3.0 (1.0 attacks/sec) — slower than swords
+ * but compensated by the +4 mounted bonus and charge bonus at gallop.
  */
 public class LanceItem extends SwordItem {
 
     public static final float MOUNTED_BONUS_DAMAGE = 4.0F;
-    public static final float BASE_DAMAGE = 6.0F;
-    public static final float ATTACK_SPEED = -3.0F; // Results in ~1.0 attacks/sec
+    public static final float ATTACK_SPEED = -3.0F; // 1.0 attacks/sec
 
     private static final ResourceLocation LANCE_ATTACK_DAMAGE_ID =
             ResourceLocation.withDefaultNamespace("base_attack_damage");
     private static final ResourceLocation LANCE_ATTACK_SPEED_ID =
             ResourceLocation.withDefaultNamespace("base_attack_speed");
 
-    public LanceItem(Tier tier, Properties properties) {
+    private final float lanceDamage;
+
+    public LanceItem(Tier tier, float attackDamage, Properties properties) {
         super(tier, properties);
+        this.lanceDamage = attackDamage;
     }
 
     /**
-     * Create the default item attribute modifiers for the lance.
-     * Base: 6 damage, 1.0 attack speed (slower but powerful).
+     * Create attribute modifiers for a lance with the given base damage.
      */
-    public static ItemAttributeModifiers createAttributes() {
+    public static ItemAttributeModifiers createAttributes(float attackDamage) {
         return ItemAttributeModifiers.builder()
                 .add(
                         Attributes.ATTACK_DAMAGE,
                         new AttributeModifier(
                                 LANCE_ATTACK_DAMAGE_ID,
-                                BASE_DAMAGE,
+                                attackDamage,
                                 AttributeModifier.Operation.ADD_VALUE
                         ),
                         EquipmentSlotGroup.MAINHAND
@@ -67,6 +72,10 @@ public class LanceItem extends SwordItem {
                         EquipmentSlotGroup.MAINHAND
                 )
                 .build();
+    }
+
+    public float getLanceDamage() {
+        return lanceDamage;
     }
 
     /**
@@ -91,9 +100,10 @@ public class LanceItem extends SwordItem {
 
     /**
      * Calculate the total damage including mounted bonus.
+     * Uses the actual lance's base damage from its ItemStack.
      */
-    public static float getTotalDamage(LivingEntity attacker) {
-        float damage = BASE_DAMAGE;
+    public static float getTotalDamage(LivingEntity attacker, float baseDamage) {
+        float damage = baseDamage;
         if (isRiderMounted(attacker)) {
             damage += MOUNTED_BONUS_DAMAGE;
 

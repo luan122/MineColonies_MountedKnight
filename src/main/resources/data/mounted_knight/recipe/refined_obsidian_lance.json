@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ],
+  "pattern": [
+    "  R",
+    " S ",
+    "S  "
+  ],
+  "key": {
+    "R": { "item": "mekanism:ingot_refined_obsidian" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "id": "mounted_knight:refined_obsidian_lance",
+    "count": 1
+  }
+}

@@ -1,7 +1,15 @@
 {
-  "item.mounted_knight.lance": "Lance",
+  "item.mounted_knight.wooden_lance": "Wooden Lance",
+  "item.mounted_knight.stone_lance": "Stone Lance",
   "item.mounted_knight.iron_lance": "Iron Lance",
+  "item.mounted_knight.golden_lance": "Golden Lance",
   "item.mounted_knight.diamond_lance": "Diamond Lance",
+  "item.mounted_knight.netherite_lance": "Netherite Lance",
+  "item.mounted_knight.osmium_lance": "Osmium Lance",
+  "item.mounted_knight.refined_obsidian_lance": "Refined Obsidian Lance",
+
+  "block.mounted_knight.stables": "Stables",
+  "block.mounted_knight.stables.tooltip": "MineColonies hut block - place in colony to assign Horse Breeder",
 
   "itemGroup.mounted_knight": "Mounted Knight",
 
@@ -21,5 +29,25 @@
   "message.mounted_knight.no_horse_available": "No horses available at the stables.",
   "message.mounted_knight.stables_full": "The stables are full.",
   "message.mounted_knight.breeding_cooldown": "Breeding is on cooldown.",
-  "message.mounted_knight.horse_tamed": "A wild horse has been tamed!"
+  "message.mounted_knight.horse_tamed": "A wild horse has been tamed!",
+
+  "jei.mounted_knight.lance.header": "Mounted Combat Lance",
+  "jei.mounted_knight.lance.base_damage": "Base Damage: %s",
+  "jei.mounted_knight.lance.mounted_damage": "Mounted Damage: %s (+4 mounted bonus)",
+  "jei.mounted_knight.lance.charge_info": "Charge Bonus: Up to +3 damage at full gallop",
+  "jei.mounted_knight.lance.usage": "Equip a Mounted Knight colonist with this lance for maximum mounted combat effectiveness. Horses are bred and trained at the Stables.",
+
+  "jei.mounted_knight.stables.header": "Stables - MineColonies Building",
+  "jei.mounted_knight.stables.desc": "Place this hut block inside your colony to create a Stables. Assigns a Horse Breeder who feeds, heals, tames, and breeds horses for your Mounted Knights.",
+  "jei.mounted_knight.stables.levels": "Lv1: 2 horses | Lv2: 3 + breeding | Lv3: 4 | Lv4: 6 + golden apples | Lv5: 8 horses",
+
+  "gui.mounted_knight.stables.horses": "Horses: %d / %d",
+  "gui.mounted_knight.stables.breeding": "Breeding: %s",
+  "gui.mounted_knight.stables.breeding.ready": "Ready",
+  "gui.mounted_knight.stables.breeding.cooldown": "Cooldown",
+  "gui.mounted_knight.stables.breeding.unavailable": "Requires Level 2",
+  "gui.mounted_knight.stables.food": "Feed: %s",
+  "gui.mounted_knight.stables.food.wheat": "Wheat",
+  "gui.mounted_knight.stables.food.golden_apple": "Golden Apples",
+  "gui.mounted_knight.stables.level": "Stables Level %d"
 }

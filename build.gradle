@@ -75,6 +75,11 @@ dependencies {
 
     // Structurize 1.0.822-1.21.1-snapshot (file 7905179, project 298744)
     compileOnly "curse.maven:structurize-298744:${structurize_file_id}"
+
+    // JEI API for recipe viewer integration (optional at runtime)
+    compileOnly "mezz.jei:jei-1.21.1-neoforge-api:${jei_version}"
+    // JEI full mod for runtime testing
+    runtimeOnly "mezz.jei:jei-1.21.1-neoforge:${jei_version}"
 }
 
 tasks.withType(ProcessResources).configureEach {
