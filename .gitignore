@@ -23,4 +23,14 @@
 hs_err_pid*
 replay_pid*
 
+# Gradle
+.gradle/
+
+# Build output
+build/
+bin/
+
+# Minecraft run directories
+runs/
+
 .fake
